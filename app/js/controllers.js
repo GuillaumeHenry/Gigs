@@ -2,18 +2,23 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var gigsControllers = angular.module('gigsControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
+gigsControllers.controller('ArtistListCtrl', ['$scope', 'Artist', 'Concert',
+  function($scope, Artist, Concert) {
+    $scope.artists = Artist.query();
+    $scope.gigs = Concert.query();
     $scope.orderProp = 'age';
   }]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
+gigsControllers.controller('ArtistDetailCtrl', ['$scope', '$routeParams', 'Artist', 'Concert',
+  function($scope, $routeParams, Artist, Concert) {
+    $scope.artist = Artist.get({artistId: $routeParams.artistId}, function(artist) {
+      $scope.mainImageUrl = artist.images[0];
+    });
+
+    $scope.concert = Concert.get({concertId: $routeParams.concertId}, function(concert) {
+      $scope.mainImageUrl = concert.images[0];
     });
 
     $scope.setImage = function(imageUrl) {

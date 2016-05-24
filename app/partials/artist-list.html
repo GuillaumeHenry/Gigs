@@ -1,0 +1,30 @@
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-md-10">
+
+      <!--Body content-->
+      <ul ng-repeat="artist in artists._embedded">
+
+        <li>Artiste: {{artist.name}}</li>
+        <li>Slug: {{artist.slug}}</li>
+        <li>Biographie: {{artist.bio}}</li>
+        <li><a href="{{artist._links.self}}">Page de {{artist.name}}</a></li>
+        <li><a href="{{artist._links.self[0]}}">Labels de {{artist.name}}</a></li>
+        <li>Concerts: {{artist._links.gigs[0]}}</li>
+
+      </ul>
+
+      <ul ng-repeat="concert in gigs._embedded">
+
+        <li>{{concert.name}} du {{concert.startDate | date}} au {{concert.endDate | date}}</li>
+        <li>Cet événement aura lieu au {{concert.venue}} à l'adresse suivante: {{concert.address}}</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>

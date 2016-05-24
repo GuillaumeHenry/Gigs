@@ -2,11 +2,18 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var gigsServices = angular.module('gigsServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+gigsServices.factory('Artist', ['$resource',
   function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    return $resource('http://promoteapi.herokuapp.com/artists', {}, {
+      query: {method:'GET', params:{artistId:'artists'}, isArray:false}
     });
-  }]);
+}]);
+
+gigsServices.factory('Concert', ['$resource',
+  function($resource){
+    return $resource('http://promoteapi.herokuapp.com/gigs', {}, {
+      query: {method:'GET', params:{concertId:'gigs'}, isArray:false}
+    });
+}]);

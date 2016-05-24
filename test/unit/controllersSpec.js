@@ -19,7 +19,7 @@ describe('PhoneCat controllers', function() {
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('phones/phones.json').
+      $httpBackend.expectGET('artists/artists.json').
           respond([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
 
       scope = $rootScope.$new();
@@ -27,7 +27,7 @@ describe('PhoneCat controllers', function() {
     }));
 
 
-    it('should create "phones" model with 2 phones fetched from xhr', function() {
+    it('should create "artists" model with 2 artists fetched from xhr', function() {
       expect(scope.phones).toEqualData([]);
       $httpBackend.flush();
 
@@ -54,7 +54,7 @@ describe('PhoneCat controllers', function() {
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData());
+      $httpBackend.expectGET('artists/xyz.json').respond(xyzPhoneData());
 
       $routeParams.phoneId = 'xyz';
       scope = $rootScope.$new();
