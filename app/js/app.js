@@ -8,6 +8,7 @@ var gigsApp = angular.module('gigsApp', [
     'gigsAnimations',
     */
     'gigsControllers',
+    'gigsDirectives',
     /*
     'gigsFilters',
     */
@@ -21,11 +22,15 @@ gigsApp.config(['$routeProvider',
             templateUrl: 'partials/artist-list.html',
             controller: 'ArtistListCtrl'
         }).
-        when('/artists/:artistId', {
-            templateUrl: 'partials/artist-detail.html',
-            controller: 'ArtistDetailCtrl'
+        when('/labels', {
+            templateUrl: 'partials/labels.html',
+            controller: 'ArtistListCtrl'
+        }).
+        when('/concerts', {
+            templateUrl: 'partials/concerts.html',
+            controller: 'ArtistListCtrl'
         }).
         otherwise({
             redirectTo: '/artists'
         });
-    }]);
+}]);

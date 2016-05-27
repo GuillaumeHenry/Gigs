@@ -1,0 +1,14 @@
+<nav-bar></nav-bar>
+<hr>
+<div class="container" >
+    <div ng-repeat="artist in artists._embedded">
+
+        <h1>{{artist.name}}: {{artist._embedded.labels[0].name}}</h1>
+        <p>Description: {{artist._embedded.labels[0].description}}</p>
+
+    </div>
+</div>
+
+<pagi-nation></pagi-nation>
+
+<foo-ter></foo-ter>
