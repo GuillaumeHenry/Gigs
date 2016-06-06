@@ -3,8 +3,9 @@
 /* Filters */
 /*
 angular.module('gigsFilters', []).filter('checkmark', function() {
-  return function(input) {
-    return input ? '\u2713' : '\u2718';
+  return function() {
+    return "/artists?filtervalue[id]=5&filteroperator[id]=="
+
+ ;
   };
 });
-*/

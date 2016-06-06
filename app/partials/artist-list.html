@@ -1,37 +1,36 @@
 <nav-bar></nav-bar>
 
-<div class="container" >
-  <div ng-repeat="artist in artists._embedded">
-    <div class="row">
-      <div class="col-lg-12">
+<div class="container"  ng-repeat="artist in artists._embedded">
+  <div class="row">
+    <div class="col-md-12">
 
-        <h1 class="page-header">{{artist.name}}
-          <small>{{artist.bio}}</small>
-        </h1>
+      <h1 class="page-header">{{artist.name}}
+        <small>{{artist.bio}}</small>
+      </h1>
 
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-7">
-
-        <a href="#">
-          <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-        </a>
-
-      </div>
-      <div class="col-md-5">
-
-        <h3>{{artist.name}}</h3>
-        <h4>{{artist._embedded.labels[0].name}}: {{artist._embedded.labels[0].description}}</h4>
-          <p>Concerts: {{artist._embedded.gigs[0].name}}</p>
-        <a class="btn btn-primary" href="#/concerts">Concerts <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-      </div>
     </div>
   </div>
-</div>
 
+  <div class="row">
+    <div class="col-md-7">
+
+      <a href="#">
+        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+      </a>
+
+    </div>
+    <div class="col-md-5">
+
+      <h3>{{artist.name }}</h3>
+      <h4>{{artist._embedded.labels[0].name}}: {{artist._embedded.labels[0].description}}</h4>
+        <p>Concerts: {{artist._embedded.gigs[0].name}}</p>
+      <a class="btn btn-primary" ng-href="#/artists/{{artist.id}}">Concerts <span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-primary" ng-href="#/labels/{{artist.id}}">Labels <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+    </div>
+  </div>
+  <hr>
+</div>
 <pagi-nation></pagi-nation>
 
 <foo-ter></foo-ter>

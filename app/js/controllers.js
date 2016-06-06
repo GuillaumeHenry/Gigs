@@ -2,12 +2,17 @@
 
 /* Controllers */
 
-var gigsControllers = angular.module('gigsControllers', []);
+var gigsControllers = angular.module('gigsControllers', ['ngRoute']);
 
-gigsControllers.controller('ArtistListCtrl', ['$scope', 'Artist', 'Concert',
-  function($scope, Artist, Concert) {
-    $scope.artists = Artist.query();
-    $scope.gigs = Concert.query();
-    $scope.orderProp = 'age';
-}]);
+gigsControllers.controller('ArtistListCtrl', ['$scope', 'Artist',
+  function($scope, Artist) {
+    $scope.artists = Artist.query({"embed[]":["gigs", "labels"]});
+    
+  }
+])
+.controller('ArtistDetailCtrl', ['$scope', '$routeParams', 'Artist',
+  function ($scope, $routeParams, Artist) {
+    $scope.artistDetail = Artist.query({"embed[]":["gigs", "labels"], artistId: $routeParams.artistId});
+  }
+]);
 
