@@ -1,10 +1,13 @@
 <nav-bar></nav-bar>
-<div class=""container">
-    <div class="col-md-12" ng-repeat="gigs in artistDetail._embedded.gigs">
 
-        <h1>{{artistDetail.name}}</h1>
-        <h4>{{artistDetail.bio}}</h4>
-        <p>{{gigs.name}} du {{gigs.start_date | date : "dd-MM-yy @h:mma"}} au {{gigs.end_date | date : "dd-MM-yy @h:mma"}} au {{gigs.venue}} à l'adresse: {{gigs.address}}</p>
+<hr>
+
+<div class=""container">
+    <div class="col-md-12">
+
+        <h1>{{artists.name}}</h1>
+        <h4>{{artists.bio}}</h4>
+        <p  ng-repeat="gigs in artists._embedded.gigs">{{gigs.name}} du {{gigs.start_date | date : "dd-MM-yy @h:mma"}} au {{gigs.end_date | date : "dd-MM-yy @h:mma"}} au {{gigs.venue}} à l'adresse: {{gigs.address}}</p>
         <p ng-show="artistDetail._embedded.gigs[0].facebook_link">Facebook: {{artistDetail._embedded.gigs[0].facebook_link}}</p>
 
         <hr>

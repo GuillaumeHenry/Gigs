@@ -18,24 +18,27 @@ gigsApp.config(['$routeProvider',
         $routeProvider.
         when('/artists', {
             templateUrl: 'partials/artist-list.html',
-            controller: 'ArtistListCtrl'
-        }).
-
-        when('/labels', {
-            templateUrl: 'partials/labels.html',
-            controller: 'ArtistListCtrl'
-        }).
-        when('/labels/:artistId', {
-            templateUrl: 'partials/labels.html',
-            controller: 'ArtistListCtrl'
-        }).
-        when('/concerts', {
-            templateUrl: 'partials/concerts.html',
-            controller: 'ArtistListCtrl'
+            controller: 'ArtistCtrl'
         }).
         when('/artists/:artistId', {
             templateUrl: 'partials/artist-detail.html',
-            controller: 'ArtistDetailCtrl'
+            controller: 'ArtistCtrl'
+        }).
+        when('/labels', {
+            templateUrl: 'partials/label-list.html',
+            controller: 'LabelCtrl'
+        }).
+        when('/labels/:labelId', {
+            templateUrl: 'partials/label-detail.html',
+            controller: 'LabelCtrl'
+        }).
+        when('/gigs', {
+            templateUrl: 'partials/gig-list.html',
+            controller: 'GigCtrl'
+        }).
+        when('/gigs/:gigId', {
+            templateUrl: 'partials/gig-detail.html',
+            controller: 'GigCtrl'
         }).
         otherwise({
             redirectTo: '/artists'

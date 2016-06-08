@@ -1,5 +1,7 @@
 <nav-bar></nav-bar>
 
+<hr>
+
 <div class="container"  ng-repeat="artist in artists._embedded">
   <div class="row">
     <div class="col-md-12">
@@ -24,8 +26,9 @@
       <h3>{{artist.name }}</h3>
       <h4>{{artist._embedded.labels[0].name}}: {{artist._embedded.labels[0].description}}</h4>
         <p>Concerts: {{artist._embedded.gigs[0].name}}</p>
-      <a class="btn btn-primary" ng-href="#/artists/{{artist.id}}">Concerts <span class="glyphicon glyphicon-chevron-right"></span></a>
-      <a class="btn btn-primary" ng-href="#/labels/{{artist.id}}">Labels <span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-primary" ng-href="#/artists/{{artist.id}}">Artiste <span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-primary" ng-href="#/labels/{{artist._embedded.labels[0].id}}">Labels <span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-primary" ng-href="#/gigs/{{artist._embedded.gigs[0].id}}">Concerts <span class="glyphicon glyphicon-chevron-right"></span></a>
 
     </div>
   </div>

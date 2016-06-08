@@ -1,0 +1,18 @@
+<nav-bar></nav-bar>
+
+<hr>
+
+<div class=""container">
+
+<div class="col-md-12" ng-repeat="label in labels._embedded">
+    <h2 style="display:inline">Label: {{label.name}}</h2>
+    <h3><i>{{label.description}}</i></h3>
+    <h3 style="display:inline" ng-repeat="artists in label._embedded.artists">{{artists.name}} </h3>
+    <hr>
+
+</div>
+</div>
+
+<pagi-nation></pagi-nation>
+
+<foo-ter></foo-ter>
