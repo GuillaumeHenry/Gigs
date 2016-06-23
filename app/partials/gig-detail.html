@@ -4,17 +4,15 @@
 
 <div class="container" >
     <div class="col-md-12">
-
         <h1>{{gigs.name | uppercase}}</h1>
         <h2 style="display:inline" ng-repeat="artist in gigs._embedded.artists">{{artist.name}} </h2>
         <hr>
         <p>Cet événement aura lieu au {{gigs.venue}} à l'adresse suivante: {{gigs.address}}</p>
         <p>Concert du {{gigs.startDate | date : "dd-MM-yyyy @ h:mma"}} au {{gigs.endDate | date : "dd-MM-yyyy @ h:mma"}}</p>
-
         <hr>
-
     </div>
 </div>
+
 <pagi-nation></pagi-nation>
 
 <foo-ter></foo-ter>

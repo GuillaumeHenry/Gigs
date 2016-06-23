@@ -18,4 +18,9 @@ gigsControllers.controller('ArtistCtrl', ['$scope', '$routeParams', 'Artist',
   function ($scope, $routeParams, Gig) {
     $scope.gigs = Gig.query({"embed[]":["labels", "artists"], gigId: $routeParams.gigId});
   }
-]);
+])/*
+.controller('PageCtrl', ['$scope', '$routeParams',
+  function($scope, $routeParams) {
+    $scope.next =
+  }
+])*/;
